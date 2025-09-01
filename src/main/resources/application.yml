@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: tecnica
+  r2dbc:
+    url: r2dbc:postgresql://postgres:5432/techtest
+    username: postgres
+    password: postgres
+  datasource:
+    url: jdbc:postgresql://postgres:5432/techtest
+    username: postgres
+    password: postgres
+server:
+  port: ${SERVER_PORT:8080}
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+  packages-to-scan: com.prueba.tecnica.interfaces.rest
+  paths-to-match: /franchises/**, /branches/**, /products/**
+
+logging:
+  level:
+    org.springframework.r2dbc: INFO
